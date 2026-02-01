@@ -82,8 +82,9 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
     }
 
     if (_vpController != null) {
-      final width = _vpController!.value.size.width > 0 ? _vpController!.value.size.width : double.infinity;
-      final height = _vpController!.value.size.height > 0 ? _vpController!.value.size.height : 200;
+      final width = _vpController!.value.size.width.toDouble();
+      final height = _vpController!.value.size.height.toDouble();
+
 
       return GestureDetector(
         onTap: () {
