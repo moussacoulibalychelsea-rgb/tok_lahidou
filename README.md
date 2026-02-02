@@ -15,6 +15,8 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
+Marketplace sociale locale pour commerçants maliens.
+
 Cahier de charge — Lahidou Tok
 1. Contexte & objectifs
     • But : Plateforme mobile/social pour commerçants et clients maliens, discovery par scroll infini, likes, abonnements, badges, notes, DoniCoins, commission 10% (8% pour premium).
