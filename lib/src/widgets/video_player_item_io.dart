@@ -39,7 +39,7 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
       _vpController!.play();
       return;
     } catch (e) {
-      debugPrint('VideoPlayer failed: $e');
+      debugPrint('Erreur initialisation video: $e');
     }
 
     try {
@@ -82,9 +82,8 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
     }
 
     if (_vpController != null) {
-      final width = _vpController!.value.size.width.toDouble();
-      final height = _vpController!.value.size.height.toDouble();
-
+      final width = _vpController!.value.size.width > 0 ? _vpController!.value.size.width : double.infinity;
+      final height = _vpController!.value.size.height > 0 ? _vpController!.value.size.height : 200;
 
       return GestureDetector(
         onTap: () {

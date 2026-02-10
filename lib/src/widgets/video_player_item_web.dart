@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:html' as html;
 import 'package:video_player/video_player.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -24,13 +25,29 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
   Future<void> _init() async {
     try {
       _controller = VideoPlayerController.networkUrl(Uri.parse(widget.url));
+      // Try to set crossOrigin on any existing video elements (helps CORS on web)
+      try {
+        final vids = html.document.getElementsByTagName('video');
+        if (vids.isNotEmpty) {
+          final v = vids.last as html.VideoElement;
+          v.crossOrigin = 'anonymous';
+        }
+      } catch (_) {}
       _controller.setLooping(true);
       await _controller.initialize().timeout(const Duration(seconds: 20));
+      // ensure crossOrigin after initialization too
+      try {
+        final vids2 = html.document.getElementsByTagName('video');
+        if (vids2.isNotEmpty) {
+          final v2 = vids2.last as html.VideoElement;
+          v2.crossOrigin = 'anonymous';
+        }
+      } catch (_) {}
       if (!mounted) return;
       setState(() { _initialized = true; });
       _controller.play();
     } catch (e) {
-      debugPrint('VideoPlayer Web failed: $e');
+      debugPrint('Erreur initialisation video: $e');
       if (!mounted) return;
       setState(() { _error = true; });
     }

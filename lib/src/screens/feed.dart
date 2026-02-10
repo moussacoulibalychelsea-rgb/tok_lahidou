@@ -10,7 +10,7 @@ class FeedPage extends StatefulWidget {
 
 class _FeedPageState extends State<FeedPage> {
   final List<Map<String, String>> _media = [
-    {'type': 'video', 'url': 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'},
+  {'type': 'video', 'url': 'https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4'},
     {'type': 'video', 'url': 'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4'},
     {'type': 'video', 'url': 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'},
     {'type': 'video', 'url': 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4'},
